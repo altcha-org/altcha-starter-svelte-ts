@@ -1,9 +1,12 @@
 <script lang="ts">
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
+  import Altcha from './Altcha.svelte'
 
-  // Importing altcha package will introduce a new element <altcha-widget>
-import 'altcha'
+  function onSubmit(ev: SubmitEvent & { currentTarget: HTMLFormElement }) {
+    const data = new FormData(ev.currentTarget)
+    console.log('Form Data', Object.fromEntries(data))
+  }
 </script>
 
 <main>
@@ -18,7 +21,7 @@ import 'altcha'
   <h1>Vite + Svelte</h1>
 
   <div class="card">
-    <form action="#">
+    <form action="#" method="post" on:submit|preventDefault={onSubmit}>
       <fieldset>
         <label>Name:</label>
         <input type="text" name="name" />
@@ -30,12 +33,9 @@ import 'altcha'
       </fieldset>
 
       <fieldset>
-        <!-- Configure your `challengeurl` and remove the `test` attribute, see docs: https://altcha.org/docs/website-integration/#using-altcha-widget -->
-        <altcha-widget
-          style="--altcha-max-width:100%"
-          debug
-          test
-        ></altcha-widget>
+
+        <Altcha />
+
       </fieldset>
 
       <button type="submit">Submit</button>
