@@ -2,15 +2,19 @@
   // Importing altcha package will introduce a new element <altcha-widget>
   import 'altcha'
 
-  export let value: string = ''
+  interface Props {
+    value?: string;
+  }
+
+  let { value = $bindable('') }: Props = $props();
 </script>
 
-<!-- Configure your `challengeurl` and remove the `test` attribute, see docs: https://altcha.org/docs/website-integration/#using-altcha-widget -->
+<!-- Configure your `challengeurl` and remove the `test` attribute, see docs: https://altcha.org/docs/v2/widget-integration/ -->
 <altcha-widget
   style="--altcha-max-width:100%"
   debug
   test
-  on:statechange={(ev) => {
+  onstatechange={(ev) => {
     const { payload, state } = ev.detail
     if (state === 'verified' && payload) {
       value = payload;

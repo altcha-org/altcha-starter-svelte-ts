@@ -4,6 +4,7 @@
   import Altcha from './Altcha.svelte'
 
   function onSubmit(ev: SubmitEvent & { currentTarget: HTMLFormElement }) {
+    ev.preventDefault()
     const data = new FormData(ev.currentTarget)
     console.log('Form Data', Object.fromEntries(data))
   }
@@ -21,15 +22,15 @@
   <h1>Vite + Svelte</h1>
 
   <div class="card">
-    <form action="#" method="post" on:submit|preventDefault={onSubmit}>
+    <form action="#" method="post" onsubmit={onSubmit}>
       <fieldset>
-        <label>Name:</label>
-        <input type="text" name="name" />
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
       </fieldset>
 
       <fieldset>
-        <label>Message:</label>
-        <textarea name="message"></textarea>
+        <label for="message">Message:</label>
+        <textarea name="message" id="message"></textarea>
       </fieldset>
 
       <fieldset>
