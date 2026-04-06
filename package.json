@@ -19,6 +19,6 @@
     "vite": "^6.3.5"
   },
   "dependencies": {
-    "altcha": "^2.0.2"
+    "altcha": "^3.0.0-beta.4"
   }
 }

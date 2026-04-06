@@ -68,13 +68,13 @@ import 'altcha';
 
 <main>
   <h1>My Svelte App with ALTCHA</h1>
-  <altcha-widget challengeurl="https://your-challenge-url.com"></altcha-widget>
+  <altcha-widget challenge="https://your-challenge-url.com"></altcha-widget>
 </main>
 ```
 
 ## Additional Configuration
 
-Ensure your `challengeurl` points to the endpoint where ALTCHA's proof-of-work challenge is processed. Customize the component attributes as needed based on your specific use case.
+Ensure your `challenge` points to the endpoint where ALTCHA's proof-of-work challenge is processed. Customize the component attributes as needed based on your specific use case.
 
 ## Conclusion
 
